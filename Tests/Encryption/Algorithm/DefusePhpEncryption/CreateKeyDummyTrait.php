@@ -23,9 +23,21 @@ trait CreateKeyDummyTrait
     /**
      * Create dummy for Key.
      *
+     * Alias for static method.
+     *
      * @return Key
      */
     private function createKeyDummy()
+    {
+        return self::createKeyDummyStatic();
+    }
+
+    /**
+     * Create dummy for Key.
+     *
+     * @return Key
+     */
+    private static function createKeyDummyStatic()
     {
         return Key::loadFromAsciiSafeString(
             'def00000a40a5fd84715a69beb6c0ee33aa2d69327e6741d3a5808112f1990715d78'
