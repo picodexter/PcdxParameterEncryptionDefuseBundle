@@ -7,6 +7,7 @@ and enables simple usage of it in combination with the Composer package
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/picodexter/parameter-encryption-defuse-bundle.svg?style=flat)](https://packagist.org/packages/picodexter/parameter-encryption-defuse-bundle)
 [![Build Status](https://img.shields.io/travis/picodexter/PcdxParameterEncryptionDefuseBundle/master.svg?style=flat)](https://travis-ci.org/picodexter/PcdxParameterEncryptionDefuseBundle)
+[![Code Coverage](https://img.shields.io/coveralls/picodexter/PcdxParameterEncryptionDefuseBundle/master.svg?style=flat)](https://coveralls.io/github/picodexter/PcdxParameterEncryptionDefuseBundle)
 
 ## Installation
 
