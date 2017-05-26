@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption" class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Decrypter\DefusePhpEncryptionDecrypter">
+            <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" />
+            <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" />
+        </service>
+
+        <service id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxy">
+        </service>
+
+        <service id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\KeyProxy">
+        </service>
+
+        <service id="pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption" class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter\DefusePhpEncryptionEncrypter">
+            <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" />
+            <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" />
+        </service>
+    </services>
+</container>
