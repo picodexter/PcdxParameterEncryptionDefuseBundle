@@ -6,21 +6,25 @@
 
     <services>
         <service id="pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption"
-            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Decrypter\DefusePhpEncryptionDecrypter">
+            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Decrypter\DefusePhpEncryptionDecrypter"
+            public="false">
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" />
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" />
         </service>
 
         <service id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy"
-            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxy">
+            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxy"
+            public="false">
         </service>
 
         <service id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy"
-            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\KeyProxy">
+            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\KeyProxy"
+            public="false">
         </service>
 
         <service id="pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption"
-            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter\DefusePhpEncryptionEncrypter">
+            class="Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter\DefusePhpEncryptionEncrypter"
+            public="false">
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" />
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" />
         </service>
