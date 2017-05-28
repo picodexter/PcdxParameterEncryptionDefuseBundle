@@ -11,12 +11,12 @@ and enables simple usage of it in combination with the Composer package
 
 ## Documentation
 
-All documentation files are located in the `Resources/doc/` directory of this
-bundle.
+The documentation source files are located in the `Resources/doc/` directory of
+this bundle.
 
 ## Installation
 
-Please refer to the [Getting Started Guide](Resources/doc/index.rst).
+Please refer to the [Getting Started guide](Resources/doc/getting-started.rst).
 
 ## License
 
