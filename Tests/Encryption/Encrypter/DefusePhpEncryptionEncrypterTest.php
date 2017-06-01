@@ -11,8 +11,8 @@
 
 namespace Picodexter\ParameterEncryptionDefuseBundle\Tests\Encryption\Encrypter;
 
-use Defuse\Crypto\Exception\CryptoException;
 use Defuse\Crypto\Key;
+use Exception;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxyInterface;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\KeyProxyInterface;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter\DefusePhpEncryptionEncrypter;
@@ -75,7 +75,7 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
                 $this->identicalTo($plainValue),
                 $this->identicalTo($key)
             )
-            ->will($this->throwException(new CryptoException()));
+            ->will($this->throwException(new Exception()));
 
         $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }
@@ -91,7 +91,7 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
         $this->keyProxy->expects($this->once())
             ->method('loadFromAsciiSafeString')
             ->with($this->identicalTo($encryptionKey))
-            ->will($this->throwException(new CryptoException()));
+            ->will($this->throwException(new Exception()));
 
         $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }

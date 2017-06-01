@@ -11,7 +11,7 @@
 
 namespace Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter;
 
-use Defuse\Crypto\Exception\CryptoException;
+use Exception;
 use Picodexter\ParameterEncryptionBundle\Encryption\Encrypter\EncrypterInterface;
 use Picodexter\ParameterEncryptionBundle\Exception\Encryption\EncrypterException;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxyInterface;
@@ -53,10 +53,10 @@ class DefusePhpEncryptionEncrypter implements EncrypterInterface
             $key = $this->keyProxy->loadFromAsciiSafeString($encryptionKey);
 
             $encryptedValue = $this->cryptoProxy->encrypt($plainValue, $key);
-        } catch (CryptoException $e) {
+
+            return $encryptedValue;
+        } catch (Exception $e) {
             throw new EncrypterException($e);
         }
-
-        return $encryptedValue;
     }
 }
