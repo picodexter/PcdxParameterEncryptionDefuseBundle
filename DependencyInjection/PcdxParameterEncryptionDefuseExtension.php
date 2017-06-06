@@ -26,7 +26,7 @@ class PcdxParameterEncryptionDefuseExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
+        $fileLocator = new FileLocator(__DIR__.'/../Resources/config');
 
         $loader = new XmlFileLoader($container, $fileLocator);
 
