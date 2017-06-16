@@ -9,6 +9,16 @@ and enables simple usage of it in combination with the Composer package
 [![Build Status](https://img.shields.io/travis/picodexter/PcdxParameterEncryptionDefuseBundle/master.svg?style=flat)](https://travis-ci.org/picodexter/PcdxParameterEncryptionDefuseBundle)
 [![Code Coverage](https://img.shields.io/coveralls/picodexter/PcdxParameterEncryptionDefuseBundle/master.svg?style=flat)](https://coveralls.io/github/picodexter/PcdxParameterEncryptionDefuseBundle)
 
+## Features
+
+You will be able to use the following ciphers:
+
+### Symmetric Ciphers
+
+* Defuse PHP encryption
+
+    (propriety, uses AES-128 for encryption and HMAC-SHA256 for authentication)
+
 ## Documentation
 
 The documentation source files are located in the `Resources/doc/` directory of
