@@ -17,7 +17,7 @@ You will be able to use the following ciphers:
 
 * Defuse PHP encryption
 
-    (propriety, uses AES-128 for encryption and HMAC-SHA256 for authentication)
+    (proprietary, uses AES-128 for encryption and HMAC-SHA256 for authentication)
 
 ## Documentation
 
