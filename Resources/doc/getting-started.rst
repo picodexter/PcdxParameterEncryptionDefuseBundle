@@ -97,10 +97,12 @@ Example:
                         <ppe:pattern type="value_prefix">
                             <ppe:argument>=#!PPE!defuse!#=</ppe:argument>
                         </ppe:pattern>
-                        <ppe:encryption service="pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption"
-                            key="%parameter_encryption.defuse.key%" />
-                        <ppe:decryption service="pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption"
-                            key="%parameter_encryption.defuse.key%" />
+                        <ppe:encryption service="pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption">
+                            <ppe:key>%parameter_encryption.defuse.key%</ppe:key>
+                        </ppe:encryption>
+                        <ppe:decryption service="pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption">
+                            <ppe:key>%parameter_encryption.defuse.key%</ppe:key>
+                        </ppe:decryption>
                     </ppe:algorithm>
                 </ppe:config>
             </container>
