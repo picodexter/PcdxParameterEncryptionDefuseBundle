@@ -54,10 +54,16 @@ in the ``app/AppKernel.php`` file of your project:
 Step 3: Configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can now use the following services in the PcdxParameterEncryptionBundle configuration:
+You can now use the following services in the ``PcdxParameterEncryptionBundle``
+configuration:
 
-*   encrypter: ``pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption``
-*   decrypter: ``pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption``
+*   Encrypter:
+
+    *   ``pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption``
+
+*   Decrypter:
+
+    *   ``pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption``
 
 Example:
 
