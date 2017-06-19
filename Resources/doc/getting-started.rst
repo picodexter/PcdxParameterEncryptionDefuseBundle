@@ -162,7 +162,8 @@ Example:
             // app/config/parameters.php
             $container->setParameter('parameter_encryption.defuse.key', 'YOUR_ENCRYPTION_KEY');
 
-    You can generate a random encryption key by using ``defuse/php-encryption``'s CLI tool:
+    You can generate a random encryption key by using
+    ``defuse/php-encryption``'s CLI tool:
 
     .. code-block:: terminal
 
