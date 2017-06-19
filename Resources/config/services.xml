@@ -10,6 +10,7 @@
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy" />
             <argument type="service" id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.key_proxy" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_defuse.encryption.defuse_php_encryption.crypto_proxy"
