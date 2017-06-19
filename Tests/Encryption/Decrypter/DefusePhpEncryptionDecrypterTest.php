@@ -96,7 +96,7 @@ class DefusePhpEncryptionDecrypterTest extends \PHPUnit_Framework_TestCase
         $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
     }
 
-    public function testDecryptValueSuccessWithDecryptionKey()
+    public function testDecryptValueSuccess()
     {
         $preparedValue = 'decrypted value';
 
@@ -106,25 +106,15 @@ class DefusePhpEncryptionDecrypterTest extends \PHPUnit_Framework_TestCase
 
         $this->setUpKeyProxyLoadFromAsciiSafeString($decryptionKey, $key);
 
-        $this->setUpCryptoProxyDecrypt($encryptedValue, $key, $preparedValue);
+        $this->cryptoProxy->expects($this->once())
+            ->method('decrypt')
+            ->with(
+                $this->identicalTo($encryptedValue),
+                $this->identicalTo($key)
+            )
+            ->will($this->returnValue($preparedValue));
 
         $decryptedValue = $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
-
-        $this->assertSame($preparedValue, $decryptedValue);
-    }
-
-    public function testDecryptValueSuccessWithoutDecryptionKey()
-    {
-        $preparedValue = 'decrypted value';
-
-        $encryptedValue = 'encrypted value';
-        $key = $this->createKeyDummy();
-
-        $this->setUpKeyProxyLoadFromAsciiSafeString(null, $key);
-
-        $this->setUpCryptoProxyDecrypt($encryptedValue, $key, $preparedValue);
-
-        $decryptedValue = $this->decrypter->decryptValue($encryptedValue);
 
         $this->assertSame($preparedValue, $decryptedValue);
     }
@@ -147,24 +137,6 @@ class DefusePhpEncryptionDecrypterTest extends \PHPUnit_Framework_TestCase
     private function createKeyProxyInterfaceMock()
     {
         return $this->getMockBuilder(KeyProxyInterface::class)->getMock();
-    }
-
-    /**
-     * Set up CryptoProxy: decrypt.
-     *
-     * @param string $encryptedValue
-     * @param Key    $key
-     * @param string $preparedValue
-     */
-    private function setUpCryptoProxyDecrypt($encryptedValue, Key $key, $preparedValue)
-    {
-        $this->cryptoProxy->expects($this->once())
-            ->method('decrypt')
-            ->with(
-                $this->identicalTo($encryptedValue),
-                $this->identicalTo($key)
-            )
-            ->will($this->returnValue($preparedValue));
     }
 
     /**
