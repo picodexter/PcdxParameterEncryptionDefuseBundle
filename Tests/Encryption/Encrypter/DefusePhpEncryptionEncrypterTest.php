@@ -96,7 +96,7 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
         $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }
 
-    public function testEncryptValueSuccessWithEncryptionKey()
+    public function testEncryptValueSuccess()
     {
         $preparedValue = 'encrypted value';
 
@@ -106,25 +106,15 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
 
         $this->setUpKeyProxyLoadFromAsciiSafeString($encryptionKey, $key);
 
-        $this->setUpCryptoProxyEncrypt($plainValue, $key, $preparedValue);
+        $this->cryptoProxy->expects($this->once())
+            ->method('encrypt')
+            ->with(
+                $this->identicalTo($plainValue),
+                $this->identicalTo($key)
+            )
+            ->will($this->returnValue($preparedValue));
 
         $encryptedValue = $this->encrypter->encryptValue($plainValue, $encryptionKey);
-
-        $this->assertSame($preparedValue, $encryptedValue);
-    }
-
-    public function testEncryptValueSuccessWithoutEncryptionKey()
-    {
-        $preparedValue = 'encrypted value';
-
-        $plainValue = 'some plain value';
-        $key = $this->createKeyDummy();
-
-        $this->setUpKeyProxyLoadFromAsciiSafeString(null, $key);
-
-        $this->setUpCryptoProxyEncrypt($plainValue, $key, $preparedValue);
-
-        $encryptedValue = $this->encrypter->encryptValue($plainValue);
 
         $this->assertSame($preparedValue, $encryptedValue);
     }
@@ -147,24 +137,6 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
     private function createKeyProxyInterfaceMock()
     {
         return $this->getMockBuilder(KeyProxyInterface::class)->getMock();
-    }
-
-    /**
-     * Set up CryptoProxy: encrypt.
-     *
-     * @param string $plainValue
-     * @param Key    $key
-     * @param string $preparedValue
-     */
-    private function setUpCryptoProxyEncrypt($plainValue, Key $key, $preparedValue)
-    {
-        $this->cryptoProxy->expects($this->once())
-            ->method('encrypt')
-            ->with(
-                $this->identicalTo($plainValue),
-                $this->identicalTo($key)
-            )
-            ->will($this->returnValue($preparedValue));
     }
 
     /**

@@ -47,7 +47,7 @@ class DefusePhpEncryptionEncrypter implements EncrypterInterface
     /**
      * @inheritDoc
      */
-    public function encryptValue($plainValue, $encryptionKey = null)
+    public function encryptValue($plainValue, $encryptionKey)
     {
         try {
             $key = $this->keyProxy->loadFromAsciiSafeString($encryptionKey);
