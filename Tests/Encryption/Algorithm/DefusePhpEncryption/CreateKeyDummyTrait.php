@@ -44,7 +44,7 @@ trait CreateKeyDummyTrait
          */
         return Key::loadFromAsciiSafeString(
             'def00000a40a5fd84715a69beb6c0ee33aa2d69327e6741d3a5808112f1990715d78'
-            . '70879c4b9a421fe42e3d7e2811cc4da63c15c988d240cbede275298811fbba827726'
+            .'70879c4b9a421fe42e3d7e2811cc4da63c15c988d240cbede275298811fbba827726'
         );
     }
 }
