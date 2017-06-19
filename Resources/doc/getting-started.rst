@@ -56,12 +56,12 @@ Step 3: Configuration
 
 You can now use the following services in the PcdxParameterEncryptionBundle configuration:
 
-* encrypter: ``pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption``
-* decrypter: ``pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption``
+*   encrypter: ``pcdx_parameter_encryption_defuse.encryption.encrypter.defuse_php_encryption``
+*   decrypter: ``pcdx_parameter_encryption_defuse.encryption.decrypter.defuse_php_encryption``
 
 Example:
 
-1. Application configuration:
+1.  Application configuration:
 
     .. configuration-block::
 
@@ -133,7 +133,7 @@ Example:
                 ]
             );
 
-2. Parameters:
+2.  Parameters:
 
     .. configuration-block::
 
