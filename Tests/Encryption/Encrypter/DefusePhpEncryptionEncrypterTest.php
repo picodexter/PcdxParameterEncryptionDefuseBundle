@@ -13,6 +13,7 @@ namespace Picodexter\ParameterEncryptionDefuseBundle\Tests\Encryption\Encrypter;
 
 use Defuse\Crypto\Key;
 use Exception;
+use Picodexter\ParameterEncryptionBundle\Exception\Encryption\EncrypterException;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\CryptoProxyInterface;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Algorithm\DefusePhpEncryption\KeyProxyInterface;
 use Picodexter\ParameterEncryptionDefuseBundle\Encryption\Encrypter\DefusePhpEncryptionEncrypter;
@@ -58,11 +59,10 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
         $this->cryptoProxy = null;
     }
 
-    /**
-     * @expectedException \Picodexter\ParameterEncryptionBundle\Exception\Encryption\EncrypterException
-     */
     public function testEncryptValueExceptionCryptoProxyError()
     {
+        $this->expectException(EncrypterException::class);
+
         $plainValue = 'some plain value';
         $encryptionKey = 'secret key';
         $key = $this->createKeyDummy();
@@ -80,11 +80,10 @@ class DefusePhpEncryptionEncrypterTest extends \PHPUnit_Framework_TestCase
         $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }
 
-    /**
-     * @expectedException \Picodexter\ParameterEncryptionBundle\Exception\Encryption\EncrypterException
-     */
     public function testEncryptValueExceptionKeyProxyError()
     {
+        $this->expectException(EncrypterException::class);
+
         $plainValue = 'some plain value';
         $encryptionKey = 'secret key';
 
