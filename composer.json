@@ -2,7 +2,7 @@
     "name": "picodexter/parameter-encryption-defuse-bundle",
     "type": "symfony-bundle",
     "description": "Symfony PcdxParameterEncryptionBundle add-on for defuse/php-encryption",
-    "keywords": ["config", "parameter", "encryption", "defuse/php-encryption"],
+    "keywords": ["config", "parameter", "encryption", "defuse", "php-encryption"],
     "homepage": "https://picodexter.io/",
     "license": "MIT",
     "authors": [
